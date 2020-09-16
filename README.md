@@ -21,7 +21,14 @@ from GitHub, directly from within an R session:
 
     > library(devtools); install_github('adjust/rport')
 
-Next you'll have to define some PostgreSQL connection settings in YML format
+#### database.yml
+
+The configuration of your database connetion settings can be done in a file,
+called `database.yml`, either in `config/database.yml` in your project or, if
+you're a UNIX user, you could define a `$HOME/.rport/database.yml` file.
+Postgres `~/.pgpass` and `~/.pg_service` files are not yet supported.
+
+To define a PostgreSQL connection settings in YML format
 by default here `config/database.yml`. See [the example
 database.yml](https://github.com/adjust/rport/blob/master/tests/database.yml)
 for an example.
