@@ -279,6 +279,9 @@ db.disconnect <- function(con.name=NA) {
     db.config.file <- .user.defined.config()
   else
     db.config.file <- file.path(.rport.root(), 'config', 'database.yml')
+    if (!file.exists(db.config.file)) {
+      db.config.file <- file.path(path.expand('~'), '.rport', 'database.yml')
+    }
 
   if (!file.exists(db.config.file))
     stop('No configuration found here:', db.config.file, '\n',
