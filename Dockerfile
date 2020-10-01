@@ -1,13 +1,13 @@
-FROM postgres:10
+FROM postgres:12
 FROM r-base
 
 RUN apt-get update
 
 # Postgres deps
-RUN apt-get install -y postgresql-10 postgresql-client-10 postgresql-contrib-10 postgresql-server-dev-10
+RUN apt-get install -y postgresql-12 postgresql-client-12 postgresql-contrib-12 postgresql-server-dev-12
 
 # Necessary for devtools
-RUN apt-get install -t unstable -y libcurl4-openssl-dev libssl-dev
+RUN apt-get install -t unstable -y libcurl4-openssl-dev libssl-dev libxml2-dev
 
 VOLUME /build
 

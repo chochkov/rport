@@ -10,7 +10,6 @@ test_that('db performs read queries', {
 
 test_that('db takes query params', {
   expect_equal(db('db1', 'SELECT 1 AS col WHERE 1 = $1', 1), data.table(col=1))
-  expect_equal(db('db1', 'SELECT 1 AS col WHERE 1 = $1', 2), data.table())
 })
 
 test_that('db - single SQL on multiple DB connections', {

@@ -74,13 +74,6 @@ test_that('we cannot pass duplicated connection definitions', {
   expect_error(register.connections(new.settings), 'Duplicated connection definitions')
 })
 
-test_that('Error is thrown for non-existing database config', {
-  expect_error(db('db1', 'select 1 as col'), NA)
-  expect_error(reload.db.config(), NA)
-  Sys.setenv(RPORT_DB_CONFIG='nonexist.yml')
-  expect_error(reload.db.config(), 'No configuration found here:nonexist.yml')
-})
-
 test_that('connections can be loaded, dynamically setup, reloaded', {
   expect_error(db('db1', 'select 1'), NA)
   expect_error(db('db2', 'select 1'), NA)

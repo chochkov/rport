@@ -275,8 +275,9 @@ pg.copy(con, tbl.name, dat)
 
 ### Custom Database Config
 
-By default `rport` looks for a `config/database.yml` file. Custom `database.yml`
-location could be given in two ways:
+By default `rport` looks for a `config/database.yml` file in your project
+directory or in `$HOME/.rport/database.yml` for UNIX users. Custom
+`database.yml` location could be given in two ways:
 
 * by calling `options('rport-database-yml-file'='~/my-dir/my-config.yml')`
 * by setting an evironment variable `RPORT_DB_CONFIG=~/my-dir/my-config.yml`

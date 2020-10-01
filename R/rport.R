@@ -262,11 +262,12 @@ db.disconnect <- function(con.name=NA) {
   # We need to make sure that db() doesn't open more connections than the driver
   # supports. Potentially here we could be smarter and instead of disconnecting
   # _all_ connections, we can maintain some kind of usage ranking.
-  d <- .driver()
-  if (dbGetInfo(d)$num_con == .max.con()) {
-    .rport.log('Max DB connections limit by the R driver hit, reconnecting.')
-    db.disconnect()
-  }
+  d <- RPostgres::Postgres()
+  # This is obsolete setting from the old RPostgresSQL driver. It'll stay here for now, but commented-out.
+  # if (dbGetInfo(d)$num_con == .max.con()) {
+  #   .rport.log('Max DB connections limit by the R driver hit, reconnecting.')
+  #   db.disconnect()
+  # }
 
   .dbConnect(drv=d, application_name=conninfo$application_name,
                   dbname=conninfo$database, user=conninfo$user,
@@ -340,10 +341,6 @@ db.disconnect <- function(con.name=NA) {
 
 .rport.log <- function(...) {
   cat(as.character(Sys.time()), '--', Sys.getpid(), ..., "\n")
-}
-
-.driver <- function() {
-  .get(.DB.DRIVER, setter=dbDriver, "PostgreSQL", max.con=.max.con())
 }
 
 .store <- function() {

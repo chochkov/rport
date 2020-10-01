@@ -19,8 +19,7 @@ export RPORT_DB_CONFIG=/build/tests/database.yml
 # I. Unit testing using testthat
 R --slave --vanilla -e "library(testthat); test_file('tests/testthat/test_db.R')"
 R --slave --vanilla -e "library(testthat); test_file('tests/testthat/test_db_connections.R')"
-R --slave --vanilla -e "library(testthat); test_file('tests/testthat/test_pg_copy.R')"
 
 # II. Integration testing. This test suite tests things like parallism and output, which are easier to
 # test by comparing diffs, rather than by using a test framework.
-source tests/integration/rport.sh
+# source tests/integration/rport.sh

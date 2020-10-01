@@ -9,7 +9,7 @@ Description: Provides facilities for:
     * Connection management and SQL parallelisation for R analytics on various PostgreSQL clustering scenarios
 License: MIT License
 Depends:
-    data.table,yaml,parallel,RPostgreSQL
+    data.table,yaml,parallel,RPostgres
 Suggests:
     testthat
-RoxygenNote: 6.0.1
+RoxygenNote: 7.1.1
